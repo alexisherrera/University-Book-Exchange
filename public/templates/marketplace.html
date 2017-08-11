@@ -1,0 +1,36 @@
+<div class=p age>
+  <h1 align="center">SmartBookz Marketplace</h1>
+  <button type="button" class="btn btn-danger logout-button" ng-click="logout()">Logout</button>
+  <button type="button" class="btn btn-secondary account-button" ng-click="goToProfile()">My Account</button>
+
+  <div align="center" class="container">
+    <input ng-model="marketSearchTerm" class="info-box" type="text" placeholder="Search by title,author,etc."></input>
+    <button type="button" class="btn btn-primary" ng-click="bookSearch(marketSeachTerm)">Search</button>
+  </div>
+  <div class="book-element" ng-repeat="book in books">
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="imgcontainer">
+          <img src="{{book.image}}" alt="No Image Found.." class="avatar image">
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <h3>Title: {{book.title}}</h3>
+        <p><b>Author: {{book.authors}}</b></p>
+        <p>Desc:{{book.descriptionGoogle}}</p>
+        <p>User Desc:{{book.descriptionUser}}</p>
+        <p>Asking Price: <b>${{book.price}}</b></p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary offer-button" ng-click="openOfferModal(book.bookID, book.price)">Offer</button>
+
+    <div class="offer-element" ng-repeat="offer in book.offers" ng-if="user == book.sellerEamil || user == offer.email">
+      <h4>Offer: ${{offer.offerAmount}}       <button type="button" class="btn btn-primary">Accept</button></h4>
+    </div>
+  </div>
+
+
+
+</div>

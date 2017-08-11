@@ -1,0 +1,30 @@
+<div class="modal-header">
+	<h3>Add New Book</h3>
+</div>
+<div class="modal-body">
+	<input ng-model="googleSearchTerm" class="info-box" type="text" placeholder="Search by title,author,etc."></input>
+	<button type="button" class="btn btn-primary" ng-click="googleSearch(googleSearchTerm)">Search</button>
+
+	<div class="book-element" ng-repeat="book in googleResults" ng-if="book != null">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="imgcontainer">
+					<img src="{{book.thumbnail}}" alt="Avatar" class="avatar image">
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h3>Title: {{book.title}}</h3>
+				<p><b>Author: {{book.authors}}</b></p>
+				<p>Desc:{{book.description}}</p>
+			</div>
+			<button type="button" class="btn btn-primary offer-button" ng-click="selectBook(book)">Select</button>
+		</div>
+	</div>
+
+	<p>User Description:</p>
+
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary">Publish</button>
+</div>
