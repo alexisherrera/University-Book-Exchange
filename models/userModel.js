@@ -14,20 +14,5 @@ var userSchema = new Schema({
 //user model
 var User = mongoose.model('User', userSchema);
 
-
-// var alexis = new User(
-//   {
-//     email: 'emailA',
-//     name: 'Alexis',
-//     password: 'pass',
-//     booksOnSale: ['1', '2'],
-//     booksSold: ['3', '4'],
-//     offersMade: [{book: '3', offerAmount: 10, satus: 'pending'}]
-//   }
-// )
-//
-// alexis.save();
-
-
 //export
 module.exports = User;

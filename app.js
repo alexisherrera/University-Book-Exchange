@@ -6,7 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var amazon = require('amazon-product-api');
 var session = require('express-session');
+var mongoose = require('mongoose');
 
+//express backend routes
 var index = require('./routes/index');
 var logIn = require('./routes/logIn');
 var home = require('./routes/home')
@@ -20,16 +22,15 @@ var register = require('./routes/register');
 var logOut = require('./routes/logOut');
 var googleBookSearch = require('./routes/googleBookSearch');
 
+//hidden config files (db connections, etc)
+var config = require('./config.js')
 
-
-
-var mongoose = require('mongoose');
 var User = require('./models/userModel');
 
 var app = express();
 
-
-mongoose.connect('mongodb://alexis:JawsTeam1@ds161225.mlab.com:61225/bookmarketplace', {
+//connection to database
+mongoose.connect(config.db_connection, {
   useMongoClient: true
 });
 
@@ -46,6 +47,7 @@ app.use(cookieParser());
 app.use(session({secret: "Shh, its a secret!"}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//bookstore API. Look at routes folder for implementation
 app.use('/', index);
 app.use('/home', home);
 app.use('/makeOffer', makeOffer);
