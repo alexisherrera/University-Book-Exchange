@@ -16,21 +16,19 @@
         </div>
       </div>
 
-      <div class="col-lg-3">
+      <div class="col-lg-5">
         <h3>Title: {{book.title}}</h3>
-        <p><b>Author: {{book.authors[0]}}</b></p>
-        <p>Desc:{{book.descriptionGoogle}}</p>
-        <p>User Desc:{{book.descriptionUser}}</p>
+        <p><b>Author</b>: {{book.authors[0]}}</p>
+        <p><strong>Description</strong>:{{book.descriptionGoogle}}</p>
+        <p><b>User Description</b>:{{book.descriptionUser}}</p>
         <p>Asking Price: <b>${{book.price}}</b></p>
       </div>
     </div>
-    <button type="button" class="btn btn-primary offer-button" ng-click="openOfferModal(book.bookID, book.price)">Offer</button>
+    <div>
+      <button type="button" class="btn btn-primary offer-button" ng-click="openOfferModal(book.bookID, book.price)">Offer</button>
 
-    <div class="offer-element" ng-repeat="offer in book.offers" ng-if="user == book.sellerEamil || user == offer.email">
-      <h4>Offer: ${{offer.offerAmount}}       <button type="button" class="btn btn-primary">Accept</button></h4>
+      <button type="button" class="btn btn-primary offer-button" ng-click="openOfferModal(book.bookID, book.price)">Buy at: ${{book.price}}  </button>
     </div>
+
   </div>
-
-
-
 </div>
