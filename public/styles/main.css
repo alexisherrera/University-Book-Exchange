@@ -19,6 +19,10 @@
  .image{
                width: 200px;
                height: auto;
+							 margin-top: 23px;
+}
+.imgcontainer {
+	text-align: center;
 }
 .offer-element {
                background-color: #FFF66C;
